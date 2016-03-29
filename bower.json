@@ -1,0 +1,23 @@
+{
+  "name": "foundation-menu",
+  "version": "0.0.0",
+  "homepage": "https://github.com/cbaeza/foundation-menu",
+  "authors": [
+    "carlos.baeza <carlos.baeza@idealo.de>"
+  ],
+  "description": "Fun with foundation",
+  "main": "index.html",
+  "keywords": [
+    "foundation",
+    "menu"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
