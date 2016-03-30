@@ -5,32 +5,39 @@
 		<title>Foundation menu</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- foundation -->
+		<link rel="stylesheet" href="bower_components/foundation/css/foundation.min.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body class="inner-wrap">
+		<h2 class="red">Foundation dropdown</h2>
+
+		<div class="row">
+			<a class="button round" 
+				style="background: url('/assets/menu.svg') no-repeat;"
+				data-dropdown="drop1" 
+				aria-controls="drop1" 
+				aria-expanded="false"></a>
+
+			<ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+				<li><a href="#">Eliminar de la comparación</a></li>
+				<li><a href="#">Modificar precio ideal</a></li>
+				<li><a href="#">Eliminar</a></li>
+			</ul>
+		</div>	
 
 		<!-- jquery -->
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
-
 		<!-- foundation -->
-		<link rel="stylesheet" href="bower_components/foundation/css/foundation.min.css">
 		<script src="bower_components/foundation/js/foundation.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
 
 		<!--  project -->
 		<script src="js/main.js"></script>
-
-
 		
-	</head>
-	<body>
-		<h1>Hello</h1>
-
-		<a data-dropdown="drop1" aria-controls="drop1" aria-expanded="false">Has Dropdown</a>
-		<ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
-			<li><a href="#">This is a link</a></li>
-			<li><a href="#">This is another</a></li>
-			<li><a href="#">Yet another</a></li>
-		</ul>
-		<a data-dropdown="drop2" aria-controls="drop2" aria-expanded="false">Has Content Dropdown</a>
-		<div id="drop2" data-dropdown-content class="f-dropdown content" aria-hidden="true" tabindex="-1">
-			<p>Some text that people will think is awesome! Some text that people will think is awesome! Some text that people will think is awesome!</p>
-		</div>
+	
 	</body>
 </html>
