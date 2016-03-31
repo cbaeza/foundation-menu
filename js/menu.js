@@ -72,7 +72,6 @@
 			var c = this;
 			console.log('setEvent');
 			$(item).click( function(event){
-				console.log('click');
 				event.preventDefault();
 				event.stopPropagation();
 				var content = $(this).data('menu-content').replace(/\'/g, '"');
@@ -83,17 +82,33 @@
 
 		Menu.prototype.showMenu = function(content, event){
 			//console.log(content);
+			console.log(event);
 			var menu = $("<div>").addClass('menu').append("<ul class='menu-list'>");
 			for( var i=0 ; i < content.menu.length ; i++){
 				var item = content.menu[i];
 				$(menu).append("<li class='menu-list-item'><span class='" + item.icon + "'><a href='" + item.link + "' class='menu-link' target='" + item.target +"'>" + item.item + '</a></span></li>');
 			}
+
+			console.log('event.currentTarget.clientHeight: ' + event.currentTarget.clientHeight);
+			console.log('event.currentTarget.clientWidth: ' + event.currentTarget.clientWidth);
 			console.log('pageX: ' + event.pageX);
 			console.log('pageY: ' + event.pageY);
-
+			console.log('offsetX: ' + event.offsetX);
+			console.log('offsetY: ' + event.offsetY);
+			console.log('window.innerWidth: ' + window.innerWidth);
+			console.log('window.innerHeight: ' + window.innerHeight);
+			
 			var _top, _left;
-			_top = event.pageY + 'px';
-			_left = event.pageX + 'px'
+			_top = event.pageY + (event.currentTarget.clientHeight - event.offsetY) + 10 + 'px';
+
+			if( (event.pageX + 150) > window.innerWidth){
+				_left = (event.pageX + (event.currentTarget.clientWidth - event.offsetX) - 150) + 'px';
+			}else{
+				_left = event.pageX - event.offsetX + 'px';
+			}
+
+			console.log('top: ' + _top)
+			console.log('left: ' + _left)
 			
 			$(menu).css({
 				top: _top,
@@ -107,7 +122,7 @@
 				menu.remove();
 				menu.detach();
 			});*/
-
+			console.log(menu)
 			menu.append('</ul></div>').appendTo('body');
 		} // showMenu
 
