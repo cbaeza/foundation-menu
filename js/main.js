@@ -1,18 +1,47 @@
+/**
+* Dynamic menu. Will be displayed for all elements that contain a data attribute
+* follow the following format:
+*	data-menu-content="{
+*		'menu':[
+*			{'item':'Vergleichen', 'icon':'icon-compare'   , 'link':'http://www.google.de'},
+*			{'item':'Preiswecker', 'icon':'icon-pricealarm', 'link':'http://www.google.de'},
+*			{'item':'Löschen'    , 'icon':'icon-delete'	   , 'link':'http://www.google.de'}
+*		]}"> 
+ *
+ * author: Carlos Baeza
+ * version: 0.0.1
+ * date: 31. March 2016
+ */
 (function(){
 	'use strict';
 
-	var Main = (function(){
+	/**
+	* Remove all active menues
+	**/
+	$(document).click(function(event){
+		var $activeMenues = $('.menu');
+		console.log($activeMenues.length);
+		if( typeof $activeMenues !== 'undefined' && $activeMenues.length > 0){
+			for(var i=0 ; i < $activeMenues.length; i++){
+				var menu = $activeMenues[i];
+				menu.remove();
+				/*menu.detach();*/
+			}
+		}
+	});
+
+	var Menu = (function(){
 
 		var options;
 
-		function Main(options){
+		function Menu(options){
 			var c = this;
-			console.log('Main');
+			console.log('Menu');
 			c.options = options;
 			c.init();
 		}
 
-		Main.prototype.init = function(){
+		Menu.prototype.init = function(){
 			var c = this;
 			console.log('init');
 			var $menues = $('[data-menu-content]');
@@ -24,11 +53,11 @@
 			}
 		} // init
 
-		Main.prototype.setEvent = function(item){
+		Menu.prototype.setEvent = function(item){
 			var c = this;
 			console.log('setEvent');
 			$(item).click( function(event){
-				console.log(event);
+				console.log('click');
 				event.preventDefault();
 				event.stopPropagation();
 				var content = $(this).data('menu-content').replace(/\'/g, '"');
@@ -37,7 +66,7 @@
 			});
 		} // setEvent
 
-		Main.prototype.showMenu = function(content, event){
+		Menu.prototype.showMenu = function(content, event){
 			//console.log(content);
 			var menu = $("<div>").addClass('menu').append("<ul class='menu-list'>");
 			for( var i=0 ; i < content.menu.length ; i++){
@@ -56,22 +85,22 @@
 				left: _left
 			});
 
-			$(menu).mouseleave(function(event){
+			/*$(menu).mouseleave(function(event){
 				event.preventDefault();
 				event.stopPropagation();
 				console.log('remove');
 				menu.remove();
 				menu.detach();
-			});
+			});*/
 
 			menu.append('</ul></div>').appendTo('body');
 		} // showMenu
 
 		
-		return Main;
-	})(); //Main
+		return Menu;
+	})(); //Menu
 	
 	var options = { someOption: 'some data to read' };
-	new Main(options);
+	new Menu(options);
 
 })();
