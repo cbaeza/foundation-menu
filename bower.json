@@ -21,6 +21,7 @@
     "tests"
   ],
   "dependencies": {
-    "foundation": "~5.5.3"
+    "foundation": "~5.5.3",
+    "modernizr-browser": "~1.0.1"
   }
 }
