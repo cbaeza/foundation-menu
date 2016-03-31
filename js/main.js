@@ -41,7 +41,8 @@
 			//console.log(content);
 			var menu = $("<div>").addClass('menu').append("<ul class='menu-list'>");
 			for( var i=0 ; i < content.menu.length ; i++){
-				$(menu).append("<li class='menu-list-item'><span class='" + content.menu[i].icon + "'><a href='#' class='menu-link' >" + content.menu[i].item + '</a></span></li>');
+				var item = content.menu[i];
+				$(menu).append("<li class='menu-list-item'><span class='" + item.icon + "'><a href='"+  item.link +"' class='menu-link' >" + item.item + '</a></span></li>');
 			}
 			console.log('pageX: ' + event.pageX);
 			console.log('pageY: ' + event.pageY);
