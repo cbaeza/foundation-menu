@@ -19,5 +19,5 @@ http://foundation.zurb.com/sites/docs/v/5.5.3/components/dropdown_buttons.html
 	>bower install
 	>http-server .
 	
-then go to http://localhost:8080/	
+then navigate to http://localhost:8080/	
 
