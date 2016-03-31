@@ -3,9 +3,9 @@
 * follow the following format:
 *	data-menu-content="{
 *		'menu':[
-*			{'item':'Vergleichen', 'icon':'icon-compare'   , 'link':'http://www.google.de'},
-*			{'item':'Preiswecker', 'icon':'icon-pricealarm', 'link':'http://www.google.de'},
-*			{'item':'Löschen'    , 'icon':'icon-delete'	   , 'link':'http://www.google.de'}
+*			{'item':'Vergleichen', 'icon':'icon-compare'   , 'link':'http://www.google.de', 'target':'_blank'},
+*			{'item':'Preiswecker', 'icon':'icon-pricealarm', 'link':'http://www.google.de', 'target':'_blank'},
+*			{'item':'Löschen'    , 'icon':'icon-delete'	   , 'link':'http://www.google.de', 'target':'_blank'}
 *		]}"> 
  *
  * author: Carlos Baeza
@@ -71,7 +71,7 @@
 			var menu = $("<div>").addClass('menu').append("<ul class='menu-list'>");
 			for( var i=0 ; i < content.menu.length ; i++){
 				var item = content.menu[i];
-				$(menu).append("<li class='menu-list-item'><span class='" + item.icon + "'><a href='"+  item.link +"' class='menu-link' >" + item.item + '</a></span></li>');
+				$(menu).append("<li class='menu-list-item'><span class='" + item.icon + "'><a href='" + item.link + "' class='menu-link' target='" + item.target +"'>" + item.item + '</a></span></li>');
 			}
 			console.log('pageX: ' + event.pageX);
 			console.log('pageY: ' + event.pageY);
