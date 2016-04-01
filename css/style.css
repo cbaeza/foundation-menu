@@ -1,12 +1,28 @@
-# styles
+/********************************************************/
+/* Override foundation default dropdown skin
+/********************************************************/
+.f-dropdown-wishlist{
+	margin-top: 10px;
+}
 
-.container {
-	position:relative;
-	width:800px;
-	height:600px;
-	background-color:#000;
-} 
+.f-dropdown-wishlist.open {
+	display: block;
+	top: 10px;
+}
 
+.f-dropdown-wishlist:focus {
+	outline: none;
+}
+
+.f-dropdown {
+  outline: 1px solid #DDD;
+}
+
+.f-dropdown-wishlist:before {
+	display: none;
+}
+
+/***************** COMMONS *********************************/
 .circle {
 	background: url('/assets/menu.svg') no-repeat center center;
 	background-size: 20px;
@@ -23,63 +39,7 @@
 
 	line-height: 1.25; /* for text */
 	text-align:center;
-}	
-
-/********************************************************/
-.f-dropdown-wishlist{
-	margin-top: 10px;
 }
-.f-dropdown-wishlist.open {
-	display: block;
-	top: 10px;
-	/*background-color: red;*/
-}
-
-.f-dropdown-wishlist.open::before {
-	/*left: 8px;*/
-}
-.f-dropdown-wishlist.open:focus, 
-.menu:focus, 
-.menu-list:focus, 
-.f-dropdown-wishlist:focus {
-	outline: none;
-}
-
-.f-dropdown {
-  outline: 1px solid #DDD;
-}
-
-.f-dropdown-wishlist:before {
-    /*border: 6px inset;
-    border-color: transparent transparent #FFF;
-    border-bottom-style: solid;
-    top: -12px;
-    left: 10px;
-    z-index: 89;*/
-	display: none;
-}
-
-/* ^ */
-.f-dropdown-wishlist.open::after {
-	/*left: 7px;*/
-}
-/* ^ */
-/*.f-dropdown-wishlist:after {
-    border: 7px inset;
-    border-color: transparent transparent #ccc;
-    border-bottom-style: solid;
-    top: -14px;
-    left: 9px;
-    z-index: 88;
-    display: none;
-}*/
-
-.menu-list{
-	display: none;
-}
-
-/********************************************************/
-
 
 .menu{
 	background: #fff;
@@ -122,9 +82,6 @@ a:active {
 	color: #0A3761;
 }
 
-
-
-
 /* remove list dots*/
 .menu-list{
 	display: none;
@@ -162,20 +119,8 @@ a:active {
 .btn-menu{
 	color: #767676;
 	border-color: #e2e2e2;
-
-}
-.icon-menu{
-	background-color: #fff;
-	background: url('/assets/menu.svg') no-repeat center center;
-	background-size: 35px
 }
 
-.btn-circle{
-	background-color: orange;
-	border-radius: 50%;
-	width: 80px;
-	height: 80px
-}
 .red{
 	color: red;
 }
