@@ -2,7 +2,8 @@
 
 the following app list all posibles option to generate dynamic menues using Foundation Framework and a self writed java script solution.
 
-## Optionen in Foundation 5 
+## Custom Menu using Foundation 5 
+# More references
 - Dropdown menu
 http://foundation.zurb.com/sites/docs/dropdown-menu.html#
 - Accordion menu
