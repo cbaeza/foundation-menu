@@ -16,17 +16,13 @@
 	'use strict';
 
 	if(Modernizr.mobile){
-		/**
-		* Remove all active menues for touch devices
-		**/
+		// Remove all active menues for touch devices
 		$(document).bind( "touchstart",function(event){
 			console.log('touchstart');
 			removeActiveMenues();
 		});
 	}else{
-		/**
-		* Remove all active menues for desktop devices
-		**/
+		// Remove all active menues for desktop devices
 		$(document).click(function(event){
 			console.log('click');
 			removeActiveMenues();
@@ -47,20 +43,20 @@
 
 	var Menu = (function(){
 
-		var options;
+		var options, viewPortHeigth, viewPortWidth;
 
 		function Menu(options){
-			var c = this;
 			console.log('Menu');
+			var c = this;
 			c.options = options;
 			c.init();
 		}
 
 		Menu.prototype.init = function(){
-			var c = this;
-			console.log('init');
-			var $menues = $('[data-menu-content]');
-			console.log($menues.length);
+			var c, $menues; 
+			c = this;
+			$menues = $('[data-menu-content]');
+			//console.log($menues.length);
 			if( typeof $menues !== 'undefined' && $menues.length > 0){
 				for(var i=0 ; i < $menues.length; i++){
 					c.setEvent($menues[i]);
@@ -70,7 +66,7 @@
 
 		Menu.prototype.setEvent = function(item){
 			var c = this;
-			console.log('setEvent');
+			//console.log('setEvent');
 			$(item).click( function(event){
 				event.preventDefault();
 				event.stopPropagation();
@@ -81,13 +77,22 @@
 		} // setEvent
 
 		Menu.prototype.showMenu = function(content, event){
-			//console.log(content);
+			var c, menu, _top, _left, dialogWidth, viewPortWidth, viewPortHeigth;
+
+			c = this;
+			viewPortWidth = window.innerWidth || 320;
+			viewPortHeigth = window.innerHeight || 568;
+			dialogWidth = 152;
+			
 			console.log(event);
-			var menu = $("<div>").addClass('menu').append("<ul class='menu-list'>");
+
+			menu = $("<div class='menu'>").append("<ul class='menu-list'>");
 			for( var i=0 ; i < content.menu.length ; i++){
 				var item = content.menu[i];
 				$(menu).append("<li class='menu-list-item'><span class='" + item.icon + "'><a href='" + item.link + "' class='menu-link' target='" + item.target +"'>" + item.item + '</a></span></li>');
 			}
+
+
 
 			console.log('event.currentTarget.clientHeight: ' + event.currentTarget.clientHeight);
 			console.log('event.currentTarget.clientWidth: ' + event.currentTarget.clientWidth);
@@ -95,14 +100,13 @@
 			console.log('pageY: ' + event.pageY);
 			console.log('offsetX: ' + event.offsetX);
 			console.log('offsetY: ' + event.offsetY);
-			console.log('window.innerWidth: ' + window.innerWidth);
-			console.log('window.innerHeight: ' + window.innerHeight);
+			console.log('viewPortWidth: ' + viewPortWidth);
+			console.log('viewPortHeigth: ' + viewPortHeigth);
 			
-			var _top, _left;
 			_top = event.pageY + (event.currentTarget.clientHeight - event.offsetY) + 10 + 'px';
 
-			if( (event.pageX + 150) > window.innerWidth){
-				_left = (event.pageX + (event.currentTarget.clientWidth - event.offsetX) - 150) + 'px';
+			if( (event.pageX + dialogWidth) > viewPortWidth){
+				_left = (event.pageX + (event.currentTarget.clientWidth - event.offsetX) - dialogWidth) + 'px';
 			}else{
 				_left = event.pageX - event.offsetX + 'px';
 			}
@@ -123,10 +127,11 @@
 				menu.detach();
 			});*/
 			console.log(menu)
-			menu.append('</ul></div>').appendTo('body');
-		} // showMenu
 
-		
+			menu.append('</ul></div>').appendTo('body');
+			console.log($('.menu').width());
+			console.log($('.menu').css('width'));
+		} // showMenu
 		return Menu;
 	})(); //Menu
 	
