@@ -18,20 +18,20 @@ $(function(){
 	if(Modernizr.mobile){
 		// Remove all active menues for touch devices
 		$(document).bind( "touchstart",function(event){
-			console.log('touchstart');
+			// console.log('touchstart');
 			removeActiveMenues();
 		});
 	}else{
 		// Remove all active menues for desktop devices
 		$(document).click(function(event){
-			console.log('click');
+			// console.log('click');
 			removeActiveMenues();
 		});	
 	}
 
 	function removeActiveMenues(){
 		var $activeMenues = $('.menu');
-		console.log($activeMenues.length);
+		// console.log($activeMenues.length);
 		if( typeof $activeMenues !== 'undefined' && $activeMenues.length > 0){
 			for(var i=0 ; i < $activeMenues.length; i++){
 				var menu = $activeMenues[i];
