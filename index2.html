@@ -20,43 +20,13 @@
 		<h1 class="red">Javascript menu</h1>
 		<div >
 			<a 	class="circle" 
-				data-menu-content="{
-					'menu':[
-						{'item' : 'Vergleichen', 'icon':'icon-compare', 'link':'http://www.google.de', 'target':'_blank'},
-						{'item' : 'Preiswecker', 'icon':'icon-pricealarm', 'link':'http://www.google.de', 'target':'_blank'},
-						{'item' : 'Löschen', 'icon':'icon-delete', 'link':'http://www.google.de', 'target':'_blank'}
-					]}"></a>
+				data-menu-content='{
+					"menu":[
+						{"item":"Vergleichen", "icon":"icon-compare", "action":"compare", "data":"111111"},
+						{"item":"Preiswecker", "icon":"icon-pricealarm", "action":"pricealarm", "data":"222222"},
+						{"item":"Löschen", "icon":"icon-delete", "action":"delete", "data":"333333"}
+					]}'></a>
 		</div>
-		<div class="container">
-			<a 	class="circle" 
-				style="left: 100px"
-				data-menu-content="{
-					'menu':[
-						{'item' : 'Vergleichen', 'icon':'icon-compare', 'link':'http://www.google.de', 'target':'_blank'},
-						{'item' : 'Preiswecker', 'icon':'icon-pricealarm', 'link':'http://www.google.de', 'target':'_blank'},
-						{'item' : 'Löschen', 'icon':'icon-delete', 'link':'http://www.google.de', 'target':'_blank'}
-					]}"></a>
-		</div>	
-		<div class="container">
-			<a 	class="circle" 
-				style="left: 272px"
-				data-menu-content="{
-					'menu':[
-						{'item' : 'Vergleichen', 'icon':'icon-compare', 'link':'http://www.google.de', 'target':'_blank'},
-						{'item' : 'Preiswecker', 'icon':'icon-pricealarm', 'link':'http://www.google.de', 'target':'_blank'},
-						{'item' : 'Löschen', 'icon':'icon-delete', 'link':'http://www.google.de', 'target':'_blank'}
-					]}"></a>
-		</div>	
-		<br><br><br><br><br><br><br>
-		<div class="container">
-			<a 	class="circle" 
-				data-menu-content="{
-					'menu':[
-						{'item' : 'Eliminar de la comparacion', 'icon':'icon-compare', 'link':'http://www.google.de', 'target':'_blank'},
-						{'item' : 'Modificar precio ideal', 'icon':'icon-pricealarm', 'link':'http://www.google.de', 'target':'_blank'},
-						{'item' : 'Eliminar', 'icon':'icon-delete', 'link':'http://www.google.de', 'target':'_blank'}
-					]}"></a>
-		</div>	
 
 		<!-- jquery -->
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
